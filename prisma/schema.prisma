@@ -15,14 +15,14 @@ model Category {
 }
 
 model Companion {
-  id           String @id @default(auto()) @map("_id")  @db.ObjectId
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
   userId       String
   userName     String
   src          String
-  name         String 
+  name         String @db.String
   description  String
-  instructions String 
-  seed         String 
+  instructions String
+  seed         String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -30,6 +30,28 @@ model Companion {
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId String   @db.ObjectId
 
+  messages Message[]
+
   @@index([categoryId])
   @@fulltext([name])
+}
+
+enum Role {
+  user
+  system
+}
+
+model Message {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  role      Role
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  companionId String @db.ObjectId
+  userId      String
+
+  companion Companion @relation(fields: [companionId], references: [id], onDelete: Cascade) // cascade : if a record in the parent table (the table with the foreign key) is deleted, then all related records in the child table (the table with the foreign key reference) will be automatically deleted as well.
+
+  @@index([companionId])
 }
