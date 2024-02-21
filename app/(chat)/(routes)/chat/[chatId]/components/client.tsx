@@ -7,6 +7,8 @@ import { Companion, Message } from "@prisma/client";
 
 import  ChatHeader  from "@/components/chat-header";
 import { ChatForm } from "@/components/chat-form";
+import { ChatMessages } from "@/components/chat-messages";
+import { ChatMessageProps } from "@/components/chat-message";
 
 interface ChatClientProps {
     companion: Companion & {
@@ -21,7 +23,7 @@ export const ChatClient = ({
     companion
 }: ChatClientProps) => {
     const router = useRouter();
-    const [messages, setMessages] = useState<any[]>(companion.messages);
+    const [messages, setMessages] = useState<ChatMessageProps[]>(companion.messages);
 
     const {
         input,
@@ -32,7 +34,7 @@ export const ChatClient = ({
     } = useCompletion({
         api: `/api/chat/${companion.id}`,
         onFinish(prompt, completion) {
-            const systemMessage = {
+            const systemMessage: ChatMessageProps = {             //messages from AI, first wait for response from api call then store these as system messages 
                 role: "system",
                 content: completion,
             };
@@ -45,7 +47,7 @@ export const ChatClient = ({
     });
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-        const userMessage = {
+        const userMessage: ChatMessageProps = {                          //message from user
             role: "user",
             content: input,
         };
