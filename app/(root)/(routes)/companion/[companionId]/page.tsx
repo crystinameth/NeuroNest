@@ -11,6 +11,7 @@ interface CompanionIdPageProps {
 
 const CompanionIdPage = async ({ params }: CompanionIdPageProps) => {
   //TODO: Check subscription
+  
 
   const { userId } = auth();
 
