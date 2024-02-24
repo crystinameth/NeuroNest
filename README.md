@@ -24,7 +24,7 @@ Subscribers can personalize their experience by crafting AI versions of their ch
 
 - **[Next.js](https://nextjs.org/):** A React framework for building efficient and scalable web applications.
 - **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework for rapid UI development.
-- **[Shadcn](https://shadcn.com/):** A tool for creating beautiful and customizable shadows for web elements.
+- **[Shadcn](https://ui.shadcn.com/):** A tool for creating beautiful and customizable shadows for web elements.
 
 ### Authentication:
 
@@ -37,13 +37,13 @@ Subscribers can personalize their experience by crafting AI versions of their ch
 
 ### UI Libraries and Components:
 
-- **[Lucid-React](https://lucid.reactgular.io/):** A comprehensive library of React components for building feature-rich UIs.
+- **[Lucide-React](https://lucide.dev/guide/packages/lucide-react):** A comprehensive library of React components for building feature-rich UIs.
 - **[React-Spinners](https://www.davidhu.io/react-spinners/):** A collection of loading spinners for React.
   
 ### AI and Machine Learning:
 
 - **[Vercel AI](https://vercel.com/integrations/ai):** A suite of tools for integrating AI into applications.
-- **[Langchain](https://langchain.io/):** A language model interaction tool for seamless communication with LLM models.
+- **[Langchain](https://github.com/langchain-ai/langchain):** A language model interaction tool for seamless communication with LLM models.
 
 ### Data Management:
 
@@ -69,7 +69,7 @@ Subscribers can personalize their experience by crafting AI versions of their ch
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/crystinameth/NeuroNest`
+1. Clone the repository: `git clone https://github.com/crystinameth/NeuroNest.git`
 2. Install dependencies: `npm install`
 3. Configure environment variables (see `.env.example`)
 4. Run the development server: `npm run dev`
